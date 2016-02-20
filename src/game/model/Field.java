@@ -26,14 +26,11 @@ public class Field {
         }
         return field[point.x][point.y];
     }
-    public void setFigure(final Point point, Figure figure) throws InvalidePointException, AlreadyOccupiedException{
+    public void setFigure(final Point point, Figure figure) throws InvalidePointException{
         if(!checkPoint(point)) {
             throw new InvalidePointException();
         }
-        /*If the space is not empty*/
-        if(field[point.x][point.y]!=null){
-            throw new AlreadyOccupiedException();
-        }
+
         field[point.x][point.y] = figure;
     }
 
