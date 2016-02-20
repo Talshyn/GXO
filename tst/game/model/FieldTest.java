@@ -1,5 +1,6 @@
 package game.model;
 
+import game.model.exception.AlreadyOccupiedException;
 import game.model.exception.InvalidePointException;
 import org.junit.Test;
 
@@ -7,9 +8,7 @@ import java.awt.*;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by user on 20.02.2016.
- */
+
 public class FieldTest {
 
     @Test
@@ -29,6 +28,19 @@ public class FieldTest {
         final Figure actualPoint = field.getFigure(inputPoint);
 
         assertEquals(inputFigure, actualPoint);
+
+    }
+    @Test
+    public void testWhenCoordinateOccupied() throws Exception {
+        final Field field = new Field();
+        final Point inputPoint = new Point(0,0);
+        final Figure inputFigure = Figure.O;
+
+        field.setFigure(inputPoint,inputFigure);
+        try {
+            field.setFigure(inputPoint,inputFigure);
+            fail();
+        }catch (final AlreadyOccupiedException e){}
 
     }
     @Test
