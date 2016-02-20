@@ -1,4 +1,4 @@
-package java.game.model;
+package game.model;
 
 /**
  * Created by user on 20.02.2016.
