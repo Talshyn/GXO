@@ -3,6 +3,7 @@ package game.model;
 import game.model.exception.AlreadyOccupiedException;
 import game.model.exception.InvalidePointException;
 
+
 import java.awt.*;
 
 /**
