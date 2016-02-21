@@ -1,6 +1,5 @@
 package game.model;
 
-import game.model.exception.AlreadyOccupiedException;
 import game.model.exception.InvalidePointException;
 
 
@@ -11,13 +10,18 @@ import java.awt.*;
  */
 public class Field {
 
-    private static final int FIELD_SIZE = 3;
+
     private static final int MIN_CORDINATE = 0;
-    private static final int MAX_CORDINATE = FIELD_SIZE;
-    private Figure[][] field = new Figure[FIELD_SIZE][FIELD_SIZE];
+    private Figure[][] field;
+    private  final int fieldsize;
+
+    public Field(final int fieldsize) {
+        this.fieldsize = fieldsize;
+       field = new Figure[fieldsize][fieldsize];
+    }
 
     public int getSize(){
-        return FIELD_SIZE;
+        return fieldsize;
     }
 
     public Figure getFigure(final Point point) throws InvalidePointException{
@@ -35,10 +39,10 @@ public class Field {
     }
 
     private boolean checkPoint(Point point){
-    return checkCordinate(point.x) && checkCordinate(point.y);
+    return checkCordinate(point.x,field.length) && checkCordinate(point.y,field[point.x].length);
     }
 
-    private boolean checkCordinate(final int cordinate){
-        return cordinate >= MIN_CORDINATE && cordinate < MAX_CORDINATE;
+    private boolean checkCordinate(final int coordinate,final int maxCooordinate){
+        return coordinate >= MIN_CORDINATE && coordinate < maxCooordinate;
     }
 }
