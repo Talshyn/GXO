@@ -13,7 +13,7 @@ public class FieldTest {
 
     @Test
     public void testGetSize() throws Exception {
-    final Field field = new Field();
+    final Field field = new Field(3);
         assertEquals(3,field.getSize());
     }
 
@@ -22,7 +22,7 @@ public class FieldTest {
       final Point inputPoint = new Point(0,0);
         final Figure inputFigure = Figure.X;
 
-        final Field field = new Field();
+        final Field field = new Field(3);
 
         field.setFigure(inputPoint,inputFigure);
         final Figure actualPoint = field.getFigure(inputPoint);
@@ -34,7 +34,7 @@ public class FieldTest {
     @Test
     public void testGetFigureWhenItisntSetted() throws Exception {
         final Point inputPoint = new Point(0,0);
-        final Field field = new Field();
+        final Field field = new Field(3);
 
         final Figure actualPoint = field.getFigure(inputPoint);
 
@@ -44,7 +44,7 @@ public class FieldTest {
     @Test
     public void testGetFigureWhenXisLessZero() throws Exception {
         final Point inputPoint = new Point(-1,0);
-        final Field field = new Field();
+        final Field field = new Field(3);
         try {
             final Figure actualPoint = field.getFigure(inputPoint);
             fail();
@@ -54,7 +54,7 @@ public class FieldTest {
     @Test
     public void testGetFigureWhenYisLessZero() throws Exception {
         final Point inputPoint = new Point(0,-1);
-        final Field field = new Field();
+        final Field field = new Field(3);
         try {
             final Figure actualPoint = field.getFigure(inputPoint);
             fail();
@@ -63,7 +63,7 @@ public class FieldTest {
     }
     @Test
     public void testGetFigureWhenXisMoreSize() throws Exception {
-        final Field field = new Field();
+        final Field field = new Field(3);
         final Point inputPoint = new Point(field.getSize()+1,0);
 
         try {
@@ -74,7 +74,7 @@ public class FieldTest {
     }
     @Test
     public void testGetFigureWhenYisMoreSize() throws Exception {
-        final Field field = new Field();
+        final Field field = new Field(3);
         final Point inputPoint = new Point(0,field.getSize()+1);
 
         try {
