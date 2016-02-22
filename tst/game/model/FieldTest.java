@@ -1,7 +1,7 @@
 package game.model;
 
 import game.model.exception.AlreadyOccupiedException;
-import game.model.exception.InvalidePointException;
+import game.model.exception.InvalidPointException;
 import org.junit.Test;
 
 import java.awt.*;
@@ -48,7 +48,7 @@ public class FieldTest {
         try {
             final Figure actualPoint = field.getFigure(inputPoint);
             fail();
-        }catch (final InvalidePointException e){}
+        }catch (final InvalidPointException e){}
 
     }
     @Test
@@ -58,7 +58,7 @@ public class FieldTest {
         try {
             final Figure actualPoint = field.getFigure(inputPoint);
             fail();
-        }catch (final InvalidePointException e){}
+        }catch (final InvalidPointException e){}
 
     }
     @Test
@@ -69,7 +69,7 @@ public class FieldTest {
         try {
             final Figure actualPoint = field.getFigure(inputPoint);
             fail();
-        }catch (final InvalidePointException e){}
+        }catch (final InvalidPointException e){}
 
     }
     @Test
@@ -80,7 +80,7 @@ public class FieldTest {
         try {
             final Figure actualPoint = field.getFigure(inputPoint);
             fail();
-        }catch (final InvalidePointException e){}
+        }catch (final InvalidPointException e){}
 
     }
 }
